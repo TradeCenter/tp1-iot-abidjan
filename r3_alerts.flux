@@ -1,0 +1,5 @@
+from(bucket: "raw_7d")
+  |> range(start: -30m)
+  |> filter(fn: (r) => r._field == "temperature")
+  |> filter(fn: (r) => r._value > 32.0)
+  |> yield(name: "alertes_temperature")

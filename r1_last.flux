@@ -1,0 +1,5 @@
+from(bucket: "raw_7d")
+  |> range(start: -1h)
+  |> filter(fn: (r) => r._measurement == "environment")
+  |> last()
+  |> yield(name: "derniere_valeur")

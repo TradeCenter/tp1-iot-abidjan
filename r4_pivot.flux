@@ -1,0 +1,5 @@
+from(bucket: "raw_7d")
+  |> range(start: -6h)
+  |> filter(fn: (r) => r._measurement == "environment" and r.location == "cocody")
+  |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+  |> yield(name: "pivot_env")

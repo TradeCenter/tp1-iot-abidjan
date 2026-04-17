@@ -1,0 +1,5 @@
+from(bucket: "raw_7d")
+  |> range(start: -24h)
+  |> filter(fn: (r) => r._field == "temperature")
+  |> aggregateWindow(every: 1h, fn: mean, createEmpty: false)
+  |> yield(name: "temp_moyenne_horaire")

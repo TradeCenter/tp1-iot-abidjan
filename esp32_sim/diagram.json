@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "author": "TP1 IoT",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "esp32", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 50, "left": 200, "attrs": { "pin": "4" } }
+  ],
+  "connections": [
+    [ "esp:4", "dht1:SDA", "green", [] ],
+    [ "esp:3.3V", "dht1:VCC", "red", [] ],
+    [ "esp:GND.1", "dht1:GND", "black", [] ]
+  ]
+}
